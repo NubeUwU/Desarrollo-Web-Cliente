@@ -12,8 +12,13 @@
             // if (v && true) alert("Verdadero");
             // else alert ("Falso");
 
-            alert (true || "Cualquier cosa");
-        }
+            let NombreObjeto, objeto;
+            NombreObjeto = prompt ('Introduce un nombre de objeto', 'navigator');
+            objeto = eval(NombreObjeto);
+            for(let propiedad in objeto){
+                document.write(NombreObjeto, ".", propiedad, ":", objeto["propiedad"], "<br>");
+            }
+    }
         ejemplo();
     </script>
 </body>
