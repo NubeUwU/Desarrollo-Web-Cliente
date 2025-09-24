@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let repeticiones;
+
+        repeticiones = prompt("Introduzca un número");
+        repeticiones = parseInt(repeticiones);
+
+        for(let i= 0; i < repeticiones; i++){
+            for (let j = 0; j<=repeticiones; j++){
+                if (j == repeticiones){
+                    document.write("<br>");
+                } else{
+                    document.write("*");
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

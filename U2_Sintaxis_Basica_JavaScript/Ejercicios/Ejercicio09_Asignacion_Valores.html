@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let primer_saludo, segundo_saludo;
+        primer_saludo = "Hola";
+        segundo_saludo = primer_saludo;
+
+        primer_saludo = "Hello";
+        document.write(segundo_saludo);
+    </script>
+
+<!--
+
+Solución:
+Como la asignación se realiza antes del cambio en la variable,
+la segunda variable se mantiene con el "Hola",
+por lo que al mostrarla por pantalla mostrará "Hola".
+
+-->
+
+
+</body>
+</html>

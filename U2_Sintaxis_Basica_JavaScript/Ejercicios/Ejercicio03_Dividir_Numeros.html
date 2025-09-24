@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let n1, n2, resultado;
+        n1 = prompt("Introduzca el valor del número 1: ", " ");
+        n1 = parseInt(n1);
+        n2 = prompt("Introduzca el valor del número 2: ", " ");
+        n2 = parseInt(n2);
+
+        resultado = parseFloat(n1/n2);
+        document.write("El resultado es: ", resultado);
+    </script>
+
+
+<!--
+    Para los distintos resultados:
+    1. Si dividimos dos textos, muestra "NaN".
+    2. Si dividimos entre 0, muestra "Infinity".
+    3. Si no introducimos nada muestra "NaN". 
+-->
+
+</body>
+</html>
