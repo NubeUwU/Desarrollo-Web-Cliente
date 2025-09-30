@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // Creamos las variables
+        let num = prompt("Introduzca el valor del numero");
+        let adivinar;
+
+        // Realizamos un bucle de 5 intentos para adivinarlo
+        for (i = 0; i < 5; i++){
+            adivinar = prompt("Intento "+ (i+1) +". El número es:");
+            
+            // Si aciertan el número, termina el juego
+            if(adivinar == num){
+                document.write("Felicidades, el número era "+num);
+                break;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

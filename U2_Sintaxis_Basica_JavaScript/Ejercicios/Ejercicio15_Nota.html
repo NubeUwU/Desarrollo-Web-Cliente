@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Solicitamos la nota y la convertimos a Float
+        let nota = prompt ("Introduzca el valor de su nota");
+        nota = parseFloat(nota);
+
+        // Evalua la nota y la muestra en texto
+        switch(true){
+            case (nota>= 0 && nota <5):
+                document.write("Suspenso");
+                break;
+            
+            case (nota >= 5 && nota <6):
+                document.write("Suficiente");
+                break;
+            
+            case (nota >= 6 && nota <7):
+                document.write("Bien");
+                break;
+
+            case (nota >=7 && nota <9):
+                document.write("Notable");
+                break;
+
+            case (nota >= 9 && nota <=10):
+                document.write("Sobresaliente");
+                break;
+            
+            case (nota < 0 || nota > 10):
+                document.write("Error, número no valido");
+                break;
+        }
+
+    </script>
+</body>
+</html>

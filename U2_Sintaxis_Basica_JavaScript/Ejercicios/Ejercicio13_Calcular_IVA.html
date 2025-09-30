@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Creamos las variables
+        let nomProducto;
+        let sinIVA;
+        let IVA = 0.21; 
+        let conIVA;
+
+        // Solicitamos los datos del producto
+        nomProducto = prompt("Introduzca el nombre del producto");
+        sinIVA = prompt("Introduzca el valor del producto sin IVA");
+        
+        // Reemplazamos el "." para que tambien detecte la "," al poner decimales y lo convertimos a float.
+        sinIVA = sinIVA.replace(",", ".");
+        sinIVA = parseFloat(sinIVA);
+
+        // Calculamos el precio con IVA
+        conIVA = (sinIVA + (sinIVA*IVA));
+
+        // Mostramos el resultado por pantalla
+        document.write("El valor del producto '" + nomProducto + "' es: " + conIVA.toFixed(2) + "€");
+
+    </script>
+
+</body>
+</html>
