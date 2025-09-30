@@ -12,7 +12,9 @@
         let nota = prompt ("Introduzca el valor de su nota");
         nota = parseFloat(nota);
 
-        // Evalua la nota y la muestra en texto
+        document.write("Nota = "+nota+ " → ")
+        
+        // Evalua la nota y muestra el resultado en texto
         switch(true){
             case (nota>= 0 && nota <5):
                 document.write("Suspenso");
@@ -34,6 +36,7 @@
                 document.write("Sobresaliente");
                 break;
             
+            // Evalua errores para fuera de rango
             case (nota < 0 || nota > 10):
                 document.write("Error, número no valido");
                 break;

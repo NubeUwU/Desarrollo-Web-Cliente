@@ -7,16 +7,22 @@
 </head>
 <body>
     <script>
+
+        // Creamos las variables
         let radio, longitud, area;
+        
+        // Solicitamos los datos
         radio = prompt("Introduzca la longitud del radio en centímetros");
         radio = parseInt(radio);
 
+        // Calculamos la longitud y el area
         longitud = 2*Math.PI*radio;
         longitud = Math.round(longitud * 100)/100;
 
         area = Math.PI*(radio**2);
         area = Math.round(area * 100)/100;
 
+        // Mostramos los resultados por pantalla
         document.write("La longitud de la circunferencia es de ", longitud, " cm <br>");
         document.write("El area del circulo es de: ", area, " cm^2");
 
