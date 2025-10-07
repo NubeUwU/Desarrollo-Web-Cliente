@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arrayNotas = [5.2, 3.9, 6, 9.75, 7.5, 3];
+        let sumaNotas = arrayNotas.reduce((total,nota)=> total += nota, 0); // total = 35.35
+        
+        // Se podría haber omitido el valor inicial 0 para total
+        sumaNotas = arrayNotas.reduce((total,nota)=> total += nota); // total = 35.35
+
+
+    </script>
+
+</body>
+</html>
