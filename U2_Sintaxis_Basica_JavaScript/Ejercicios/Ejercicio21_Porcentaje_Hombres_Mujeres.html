@@ -18,14 +18,28 @@
 
     // Preguntamos los sexos mediante un bucle
     for(let i = 0; i<alumnos; i++){
-        let sexo = prompt(`Introduce el sexo de la persona ${i} (H/M):`).toUpperCase();
+        let sexo = prompt(`Introduce el sexo de la persona ${i+1} (H/M):`).toUpperCase();
        
         // Validamos el sexo
-        while (isNaN(sexo) || sexo !== "H" && sexo !== "M") {
+        while (sexo !== "H" && sexo !== "M") {
           sexo = prompt("Entrada no válida. Introduce H para hombre o M para mujer:").toUpperCase();
         }
+
+        // Aumentamos los contadores
+        if(sexo == "H"){
+            hombres++;
+        }else{
+            mujeres++;
+        }
     }
-    
+
+    // Calculamos los porcentajes
+    pHombres = ((hombres / alumnos) * 100).toFixed(2);
+    pMujeres = ((mujeres / alumnos) * 100).toFixed(2);
+
+    // Mostramos el resultado
+    document.write("El porcentaje de hombres en la clase es: " + pHombres + "%<br>");
+    document.write("El porcentaje de mujeres en la clase es: " + pMujeres + "%<br>");
     
     
     </script>

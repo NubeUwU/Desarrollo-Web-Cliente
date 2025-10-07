@@ -11,12 +11,54 @@
     <p>2. Sumatorio</p>
     <p>3. Factorial</p>
     <label for="selector">Elija una operación (1 | 2 | 3)</label>
-    <input type="number" id ="seleccion">
-    
+    <input type="number" id ="operacion">
+    <button onclick="Seleccion()">Enviar</button>
+
     <script>
-        let seleccion = seleccion;
+        function Seleccion(){
+        let seleccion = Number(document.getElementById("operacion").value);
 
+        switch (seleccion){
+           
+            case (1): // Salír
 
+                document.write("Fin del Programa");
+                break;
+            
+            case(2): // Sumatorio
+
+                let n1 = 0;
+                n1 = prompt("Introduzca el número del que quiera calcular su sumatorio");
+                n1 = parseInt(n1);
+
+                // Calculamos su sumatorio
+                const sumatorio = n1 =>{
+                    if (n1<=1) return 1;
+                    return n1 + sumatorio(n1-1);
+                }
+
+                // Mostramos el resultado por pantalla
+                document.write("El sumatorio de " + n1 + " es: " + sumatorio(n1));
+                break;
+            
+
+            case(3): // Factorial
+
+                let n2 = 0;
+                n2 = prompt("Introduzca el número del que quiera calcular su factorial");
+                n2 = parseInt(n2);
+
+                // Calculamos su factorial
+                const factorial = n2 =>{
+                    if (n2<=1) return 1;
+                    return n2 * factorial(n2-1);
+                }
+
+                // Mostramos el resultado por pantalla
+                document.write("El factorial de " + n2 + " es: " + factorial(n2));
+                break;
+        }
+    }
     </script>
 
 </body>

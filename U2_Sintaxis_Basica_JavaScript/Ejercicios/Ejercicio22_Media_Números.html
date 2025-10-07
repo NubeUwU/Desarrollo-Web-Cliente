@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Inicializamos las variables
+        let media = 0;
+        let cantidad = parseInt(prompt("¿Cuantos números va a introducir?"));
+
+        // Sumamos las cantidades a la media
+        for (i= 0; i < cantidad; i++){
+            media += parseFloat(prompt(`Introduzca el número ${i+1}`));
+        }
+
+        // Calculamos la media con los datos obtenidos
+        media = media/cantidad;
+
+        // Mostramos la media por pantalla
+        document.write("La media de los valores introducidos es: " + media);
+
+    </script>
+
+
+</body>
+</html>
