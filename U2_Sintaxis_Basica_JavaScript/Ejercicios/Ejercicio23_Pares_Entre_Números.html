@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Creamos los inputs, un botón que realize el script, y les asignamos un id-->
+    <label for="num1">Introduzca el primer número</label>
+    <input type="number" id ="num1">
+
+    <br>
+
+    <label for="num2">Introduzca el segundo número</label>
+    <input type="number" id ="num2">
+
+    <br>
+
+    <button onclick="Operacion()">Enviar</button>
+    
+    <script>
+        function Operacion(){
+
+            // Creamos las variables
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            let existePar = false;
+
+            // Si los números son iguales o no hay números entre ellos, se muestra un mensaje
+            if(num1 == num2 || Math.abs(num1-num2)==1){
+                document.write("No hay ningun número entre " + num1 + " y " + num2);
+            
+            // Si el primer numero es MENOR que el segundo
+            }else if(num1 < num2){
+
+                // Iteramos sobre los numeros entre esos dos numeros
+                for(let i=(num1+1); i<num2; i++){
+                   
+                    // Si es par, lo mostramos por pantalla
+                    if(i%2 == 0){
+                        document.write(i + " ");
+                        existePar = true;
+                    }
+                }
+            
+                // Si no hay pares, mostramos un mensaje
+                if (!existePar){
+                    document.write("No existe ningun número par entre " + num1 + " y "+ num2);
+                }   
+
+            // Si el primer numero es MAYOR que el segundo
+            }else if(num1 > num2){
+
+                // Iteramos sobre los numeros entre esos dos numeros
+                for(let i=(num2+1); i<num1; i++){
+
+                     // Si es par, lo mostramos por pantalla
+                    if(i%2 == 0){
+                        document.write(i + " ");
+                        existePar = true;
+                    }
+                }
+
+                // Si no hay pares, mostramos un mensaje
+                if (!existePar){
+                    document.write("No existe ningun número par entre " + num2 + " y "+ num1);
+                }
+            }
+        }  
+    </script>
+
+</body>
+</html>
