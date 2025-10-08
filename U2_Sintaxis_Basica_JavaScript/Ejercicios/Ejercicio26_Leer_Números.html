@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Creamos los inputs para los 3 números y el boton-->
+    <p>Introduzca 3 números</p>
+
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1">
+    
+    <br>
+
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2">
+
+    <br>
+
+    <label for="num3">Número 3:</label>
+    <input type="number" id="num3">
+
+    <br>
+
+    <button onclick="Leer()">Leer</button>
+
+    <script>
+        function Leer(){
+            // Creamos las variables
+            let n1 = parseInt(document.getElementById("num1").value);
+            let n2 = parseInt(document.getElementById("num2").value);
+            let n3 = parseInt(document.getElementById("num3").value);
+
+            // Los asignamos a un array
+            let numeros = [n1, n2, n3];
+
+            // Usamos la funcion sort para ordenarlos
+            numeros.sort(function(a,b){
+                return b - a; // Hacemos b - a para que aparezcan en orden DECRECIENTE
+            });
+
+            // Mostramos por pantalla el resultado
+            document.write("En orden decreciente, los números son: " + numeros.join(", "));
+        }
+
+    </script>
+</body>
+</html>

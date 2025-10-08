@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validar fecha</title>
+</head>
+<body>
+    <p>Introduzca una fecha</p>
+
+    <label for="dia">Día: </label>
+    <input type="number" id="dia">
+    <br>
+
+    <label for="mes">Mes: </label>
+    <input type="number" id="mes">
+    <br>
+
+    <label for="anyo">Año: </label>
+    <input type="number" id="anyo">
+    <br>
+
+    <button onclick="Leer()">Leer</button>
+
+    <script>
+        function Leer() {
+
+            // Creamos las variables y las asignamos.
+            let maxDias = 31;
+            let dia = parseInt(document.getElementById("dia").value);
+            let mes = parseInt(document.getElementById("mes").value);
+            let anyo = parseInt(document.getElementById("anyo").value);
+
+            // Validacion dia, mes y año
+            if (dia < 1 || mes < 1 || mes > 12 || anyo < 0) {
+                document.write(`Error. El día ${dia} del mes ${mes} del año ${anyo} no existe!`);
+                return;
+            }
+
+            // Meses con 30 días
+            if (mes === 4 || mes === 6 || mes === 9 || mes === 11) {
+                maxDias = 30;
+             }
+
+            // Febrero
+            if (mes === 2) {
+                if ((anyo % 4 === 0 && anyo % 100 !== 0) || (anyo % 400 === 0)) {
+                    maxDias = 29; // Año bisiesto
+                } else {
+                    maxDias = 28; // No bisiesto
+                }
+            }
+
+            // Mostramos el resultado por pantalla
+            if (dia <= maxDias) {
+                document.write(`El día ${dia} del mes ${mes} del año ${anyo} sí existe!`);
+            } else {
+                document.write(`Error. El día ${dia} del mes ${mes} del año ${anyo} no existe!`);
+            }
+        }
+    </script>
+</body>
+</html>
