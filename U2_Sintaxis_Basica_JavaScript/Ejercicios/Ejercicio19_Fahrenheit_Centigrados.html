@@ -8,9 +8,16 @@
 <body>
     
     <script>
-        let fahrenheit = prompt("Introduzca los grados Fahrenheit")
-        let centigrados = 5/9 * (fahrenheit-32);
 
+        // Creamos las variables
+        let fahrenheit = 0;
+        let centigrados = 0;
+
+        // Solicitamos los datos y los convertimos
+        fahrenheit = prompt("Introduzca los grados Fahrenheit")
+        centigrados = 5/9 * (fahrenheit-32);
+
+        // Mostramos el resultado por pantalla
         document.write("Grados Fahrenheit: "+fahrenheit + " F");
         document.write("<br>");
         document.write("Grados Centigrados: "+centigrados.toFixed(1) + " ºC");
