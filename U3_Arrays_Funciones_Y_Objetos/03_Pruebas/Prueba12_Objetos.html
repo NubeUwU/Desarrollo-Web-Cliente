@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Saludador{
+            nombre = "Sin nombre";
+            static palabraSaludo = "Hola";
+        
+            constructor(nombre){
+                this.nombre = nombre ? nombre : this.nombre;
+            }
+
+            saludo(){
+                return `${Saludador.palabraSaludo}, soy ${this.nombre}`;
+            }
+        }
+
+        let s = new Saludador(); // Saludo sin nombre
+        console.log(s.saludo());
+        s = new Saludador('Diego'); // Saludo con nombre
+        console.log(s.saludo());
+
+        console.log(s);
+    </script>
+</body>
+</html>

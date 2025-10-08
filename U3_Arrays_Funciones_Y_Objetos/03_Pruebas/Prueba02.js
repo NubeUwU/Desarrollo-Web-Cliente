@@ -1,7 +1,7 @@
-var a = 0, b = 0;
-var doblar = function (a) { return a * 2; };
-var sumar = function (a, b) { return a + b; };
-var factorial = function (a) {
+let a = 0, b = 0;
+const doblar = a => a * 2;
+const sumar = (a, b) => a + b;
+const factorial = a => {
     if (a <= 1) {
         return 1;
     }

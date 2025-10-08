@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let coche = new Map();
+        coche.set("marca", "chevrolet");
+        coche.set("modelo", "aveo");
+        coche.set("color", "blanco");
+        console.log(coche);
+        console.log(coche.get("marca"));
+        console.log(coche.has("modelo"));
+        console.log(coche.has("numeroruedas"));
+        coche.forEach((valor) => console.log(valor));
+        for(let [clave, valor] of coche){
+            console.log(clave, "-", valor);
+        }
+
+        // Coleccion de claves del objeto
+        for(let clave of coche.keys()){
+            console.log(clave);
+        }
+        coche.keys().forEach((clave) => console.log(clave));
+    </script>
+
+</body>
+</html>
