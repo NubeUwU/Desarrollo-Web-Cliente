@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Introduzca un número para comprobar si es multiplo de "3"</h3>
+    <label for="numero">Número: </label>
+    <input type="number" id="num">
+
+    <button onclick="comprobarMultiplo3()">Comprobar</button>
+
+    <p id="resultado"></p> <!-- Aqui se mostrará el resultado-->
+
+
+
+    <script>
+        // Funcion que nos permite comprobar si el número introducido es multiplo de 3
+        function comprobarMultiplo3(){
+            
+            // Asignamos el numero a una variable
+            let num = document.getElementById("num").value;
+            
+            // Creamos un mensaje con un condicional
+            let mensaje = (num % 3 == 0)
+                ? `El número ${num} es multiplo de 3`
+                : `El número ${num} no es multiplo de 3`
+            ;
+
+            // Mostramos el resultado al final de la pagina sin borrar el contenido
+            document.getElementById("resultado").textContent = mensaje;
+            
+        }
+    </script>
+</body>
+</html>
