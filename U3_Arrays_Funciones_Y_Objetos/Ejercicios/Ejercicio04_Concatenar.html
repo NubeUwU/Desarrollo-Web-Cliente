@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Creación de Correo Electronico</h3>
+    <label for="nombre">Nombre: </label>
+    <input type="string" id="nombre">
+
+    <br><br>
+    <label for="servidor">Nombre del Servidor: </label>
+    <input type="string" id="servidor">
+
+    <br><br>
+    <label for="dominio">Dominio: </label>
+    <input type="string" id="dominio">
+
+    <br><br>
+
+    <button onclick="crearCorreo()">Crear</button>
+
+    <br><br>
+    <h3 id="resultado"></h3>
+
+    <script>
+        function crearCorreo(){
+
+            let nombre = document.getElementById("nombre").value;
+            let servidor = document.getElementById("servidor").value.toLowerCase();
+            let dominio = document.getElementById("dominio").value.toLowerCase();
+
+            document.getElementById("resultado").innerHTML = `El correo electronico es: ${nombre}@${servidor}.${dominio}`;
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factoriales en tabla</title>
+</head>
+<body>
+
+<h2>Factoriales de los 25 primeros números</h2>
+
+<table border="1" id="tablaFactoriales">
+    <tr>
+        <th>Número</th>
+        <th>Factorial</th>
+    </tr>
+</table>
+
+<script>
+
+    const factorial = n => n <= 1 ? 1 : n * factorial(n - 1); // Muestra los factoriales
+
+    let html = "";
+    for (let i = 1; i <= 25; i++) {
+        html += `<tr><td>${i}</td><td>${factorial(i)}</td></tr>`; // Añade 
+    }
+
+    document.getElementById("tablaFactoriales").innerHTML += html;
+</script>
+
+</body>
+</html>
