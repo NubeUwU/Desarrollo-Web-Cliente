@@ -6,5 +6,5 @@ export class Pelicula {
 }
 
 export class Generos{
-    constructor (id,nombre)
+    constructor (id,nombre){}
 }
