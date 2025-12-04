@@ -1,4 +1,5 @@
 import { useState } from "react";
+<<<<<<< HEAD
 function App() { 
   const [estado, setEstado] = useState({ 
     titulo: "Por defecto", 
@@ -44,6 +45,28 @@ function App() {
         </div> 
       </div> 
     </div> 
+=======
+import Visor from "./components/Visor.jsx";
+function App() { 
+  const imagenesSrc = new Array(
+    "imagen1.jpg",
+    "imagen2.jpg",
+    "imagen3.jpg",
+    "imagen4.jpg",
+    "imagen5.jpg",
+    "imagen6.jpg",
+    "imagen7.jpg",
+  )
+  
+  return ( 
+    <div className="App"> 
+      <header className="App-header"> 
+ 
+      <Visor imagenes={imagenesSrc} /> 
+ 
+      </header> 
+    </div>
+>>>>>>> 5e79c67646ba9941c85cf48c03c0276e7ba5067e
   ); 
 }
 
