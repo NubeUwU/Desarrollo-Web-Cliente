@@ -1,97 +1,149 @@
-import { Genero, Pelicula } from "./DatosPeliculas.js";
+import { Pelicula } from "./DataObjects.js";
+import { Genero } from "./DataObjects.js";
 
 
-function actualizaLocal() {
-  localStorage.setItem("generos", JSON.stringify(generos));
-  localStorage.setItem("peliculas", JSON.stringify(peliculas));
+function actualizarLocal() {
+    localStorage.setItem("peliculas", JSON.stringify(peliculas));
+    localStorage.setItem("generos", JSON.stringify(generos));
 }
 
-function inicializarDatos() {
-  generos = [];
-  generos.push({ id: 1, nombre: "Acción" });
-  generos.push({ id: 2, nombre: "Comedia" });
-  generos.push({ id: 3, nombre: "Drama" });
-  generos.push({ id: 4, nombre: "Terror" });
-  generos.push({ id: 5, nombre: "Ciencia Ficción" });
-  generos.push({ id: 6, nombre: "Romance" });
-  generos.push({ id: 7, nombre: "Musical" });
+function iniciarDatos() {
+    generos = [];
+        generos.push(new Genero("Acción"));
+        generos.push(new Genero("Comedia"));
+        generos.push(new Genero("Drama"));
+        generos.push(new Genero("Terror"));
+        generos.push(new Genero("Ciencia Ficción"));
+        generos.push(new Genero("Romance"));
+        generos.push(new Genero("Musical"));
 
-  peliculas = [];
-  peliculas.push({id: 1, titulo: "Given", FechaEstreno: "2020-08-08", popularidad: 7.7, generos: [2, 6, 7], puntuaciones: [8, 9, 7],});
-  peliculas.push({id: 2, titulo: "Interstellar", FechaEstreno: "2014-11-07", popularidad: 8.6, generos: [5, 1, 3], puntuaciones: [9, 10, 8, 9],});
-  peliculas.push({id: 3, titulo: "El Conjuro", FechaEstreno: "2013-07-19", popularidad: 7.5, generos: [4, 3], puntuaciones: [7, 8, 6, 7],});
-  peliculas.push({id: 4, titulo: "The Dark Knight", FechaEstreno: "2008-07-18", popularidad: 9.0, generos: [1, 3], puntuaciones: [10, 9, 10, 9, 10],});
-  peliculas.push({id: 5, titulo: "La La Land", FechaEstreno: "2016-12-09", popularidad: 8.0, generos: [2, 6, 7], puntuaciones: [8, 9, 8, 9],});
-  peliculas.push({id: 6, titulo: "Aves de Presa", FechaEstreno: "2010-07-16", popularidad: 8.8, generos: [1], puntuaciones: [9, 9, 10, 8],});
-  
-  actualizaLocal();
+    peliculas = []; 
+        peliculas.push(new Pelicula("Inception", "2010-07-16", 88, [generos[0], generos[4]]));
+        peliculas.push(new Pelicula("The Dark Knight", "2008-07-18", 90, [generos[0], generos[2]]));
+        peliculas.push(new Pelicula("Forrest Gump", "1994-07-06", 88, [generos[1], generos[2]]));
+        peliculas.push(new Pelicula("The Matrix", "1999-03-31", 87, [generos[0], generos[4]]));
+        peliculas.push(new Pelicula("Titanic", "1997-12-19", 78, [generos[2], generos[5]]));
+        peliculas.push(new Pelicula("La La Land", "2016-12-09", 81, [generos[1], generos[5], generos[6]]));
+        peliculas.push(new Pelicula("Get Out", "2017-02-24", 85, [generos[3], generos[1]]));
+    
+
+    actualizarLocal();
 }
+
 
 function reiniciarDatos() {
-  localStorage.removeItem("peliculas");
-  inicializarDatos();
+    localStorage.removeItem("peliculas");
+    localStorage.removeItem("generos");
+    iniciarDatos();
 }
+
 
 var peliculas;
 var generos;
 
+
 function getPeliculas() {
-  peliculas = JSON.parse(localStorage.getItem("peliculas"))?.map(p =>
-    new Pelicula(p.id, p.titulo, p.FechaEstreno, p.popularidad, p.generos, p.puntuaciones)
-  ) || [];
-  return peliculas;
+    const datos = JSON.parse(localStorage.getItem("peliculas")) || [];
+    return datos.map(p => new Pelicula(p.titulo, p.fechaEstreno, p.puntuacion, p.generos));
 }
+
 
 function getGeneros() {
-  generos = JSON.parse(localStorage.getItem("generos"))?.map(g =>
-    new Genero(g.id, g.nombre)
-  ) || [];
-  return generos;
+    const datos = JSON.parse(localStorage.getItem("generos")) || [];
+    return datos.map(g => new Genero(g.nombre));
 }
 
 
-function addPelicula(id, titulo, fechaEstreno, popularidad, generosArr) {
-  peliculas = getPeliculas();
-  peliculas.push(new Pelicula(id, titulo, fechaEstreno, popularidad, generosArr, []));
-  actualizaLocal();
-}
-
-function addGenero(id, nombre) {
-  generos = getGeneros();
-  generos.push(new Genero(id, nombre));
-  actualizaLocal();
-}
-
-// Eliminar entradas por nombre
-function delPelicula(titulo) {
-  peliculas = getPeliculas();
-  peliculas = peliculas.filter(p => p.titulo !== titulo);
-  actualizaLocal();
-}
-
-function delGenero(nombre) {
-  generos = getGeneros();
-  generos = generos.filter(g => g.nombre !== nombre);
-  actualizaLocal();
+function insertarPelicula() {
+  if (!peliculas) peliculas = getPeliculas();
+  peliculas.push(new Pelicula(titulo, fechaEstreno, popularidad, generos,));
+  peliculas.sort(comparerPeliculas);
+  actualizarLocal();
 }
 
 
-function modPelicula(
-  numero,
-  nuevoOrigen,
-  nuevoDestino,
-  nuevaHoraSalida,
-  nuevoIntervalo
+function eliminarPeliculaPorNombre(peliculas) {
+  if (!peliculas) peliculas = getPeliculas();
+  peliculas = peliculas.filter((p) => p.titulo !== titulo);
+  actualizarLocal();
+}
+
+
+function modificarPeliculaPorNombre(
+    nombreBuscado,
+    nuevoNombre,
+    nuevaFechaEstreno,
+    nuevaPopularidad,
+    nuevosGeneros,
 ) {
-  if (!lineas) lineas = getLineas();
+  if (!peliculas) peliculas = getPeliculas();
 
-  let encontrada = lineas.find((l) => l.Numero === numero);
+  let encontrada = peliculas.find((p) => p.titulo === nombreBuscado);
   
   if (encontrada) {
-    encontrada.Origen = nuevoOrigen;
-    encontrada.Destino = nuevoDestino;
-    encontrada.HoraSalida = nuevaHoraSalida;
-    encontrada.Intervalo = nuevoIntervalo;
-    actualizaLocal();
+    encontrada.titulo = nuevoNombre;
+    encontrada.fechaEstreno = nuevaFechaEstreno;
+    encontrada.popularidad = nuevaPopularidad;
+    encontrada.generos = nuevosGeneros;
+    actualizarLocal();
   }
 }
+
+
+
+
+
+
+const existePelicula = (titulo) => {
+  if (!peliculas) peliculas = getPeliculas(); 
+  return getPeliculas(peliculas) != null;
+}
+
+
+const cargarDatosPeliculas = function () {
+  
+  let peliculas = getPeliculas();
+  let tblBody = document.getElementById("tblPeliculas").querySelector("tbody");
+
+  if (!tblBody) {
+    tblBody = document.createElement("tbody");
+    document.getElementById("tblLineas").appendChild("tbody");
+  }
+
+  tblBody.innerHTML = "";
+  lineas.forEach((p) => {
+    let fila = document.createElement("tr");
+    let tdTitulo = document.createElement("td");
+    tdTitulo.textContent = p.Titulo;
+    let tdFechaEstreno = document.createElement("td");
+    tdFechaEstreno.textContent = p.fechaEstreno;
+    let tdPopularidad = document.createElement("td");
+    tdPopularidad.textContent = p.popularidad;
+
+    fila.appendChild(tdTitulo);
+    fila.appendChild(tdFechaEstreno);
+    fila.appendChild(tdPopularidad);
+
+    tblBody.appendChild(fila);
+  });
+};
+
+const getPeliculasPorNombre = (titulo) => getPeliculas().find((p) => p.Titulo === titulo);
+
+
+
+const importMethods = () => {
+  window.reiniciarDatos = reiniciarDatos;
+  window.iniciarDatos = iniciarDatos;
+  window.getPeliculasPorNombre = getPeliculasPorNombre;
+  window.insertarPelicula = insertarPelicula;
+  window.eliminarPeliculaPorNombre = eliminarPeliculaPorNombre;
+  window.modificarPeliculaPorNombre = modificarPeliculaPorNombre;
+  window.cargarDatosPeliculas = cargarDatosPeliculas;
+  window.existePelicula = existePelicula;
+};
+
+importMethods();
+
+
+
