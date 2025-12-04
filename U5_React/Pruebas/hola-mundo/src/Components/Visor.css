@@ -1,0 +1,24 @@
+.visor { 
+    width: 300px; 
+    height: 200px; 
+    border: 0; 
+} 
+.imagen { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+} 
+.botones { 
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+} 
+.botones button { 
+    flex: 1; 
+    margin: 5px; 
+    padding: 10px; 
+    cursor: pointer; 
+} 
+.flip-horizontal { 
+    transform: rotateY(180deg); 
+}

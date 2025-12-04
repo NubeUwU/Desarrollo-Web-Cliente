@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "tarjeta-blog.js"></script>
+    <template id="plantilla-tarjeta">
+        <style>
+        .tarjeta {
+            border: 1px solid #ddd;
+            width: 200px;
+            padding: 10px;
+    }
+        .encabezado {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+    }
+        .contenido {
+            margin-top: 10px;
+    }
+</style>
+
+<div class="tarjeta">
+    <div class="encabezado">
+        <p class="titulo"></p>
+        <span class="subtitulo"></span>
+    </div>
+    <div class="contenido">
+        <span class="sinopsis"></span>
+    </div>
+</div>
+</template>
+
+</head>
+<body>
+    <tarjeta-blog></tarjeta-blog>
+</body>
+</html>

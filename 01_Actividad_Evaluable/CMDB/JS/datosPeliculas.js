@@ -12,7 +12,7 @@ class Genero {
   }
 
   set nombre(valor) {
-    if (typeof valor !== "string" || valor.length > 100) {
+    if (typeof valor !== "string" || valor.trim() === "" ||valor.length > 100) {
       throw new Error("Nombre de género inválido");
     }
     this._nombre = valor;
@@ -31,7 +31,7 @@ class Pelicula {
   static ultimoId = 0;
 
   constructor(titulo, fechaEstreno, popularidad, generos = []) {
-    this._id = ++Pelicula.ultimoId; 
+    this._id = ++Pelicula.ultimoId;
     this.titulo = titulo;
     this.fechaEstreno = fechaEstreno;
     this.popularidad = popularidad;
@@ -47,7 +47,7 @@ class Pelicula {
   }
 
   set titulo(valor) {
-    if (typeof valor !== "string" || valor.length > 100) {
+    if (typeof valor !== "string" || valor.length > 100 || valor.trim() === "") {
       throw new Error("Título inválido");
     }
     this._titulo = valor;

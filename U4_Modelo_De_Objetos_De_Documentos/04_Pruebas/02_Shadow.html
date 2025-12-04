@@ -1,0 +1,19 @@
+<html>
+    <body>
+    <div id="content"></div>
+    <h1 id="header">Esto no tendrá un color de fondo rojo</h1>
+    <script>
+        const shadowRoot = document
+        .getElementById("content")
+        .attachShadow({ mode: "open" });
+        shadowRoot.innerHTML = `
+        <style>
+            h1 {
+            background: red;
+            color: #fff;
+        }
+        </style>
+    <h1 id='header'>Esto tendrá un color de fondo rojo</h1>`;
+    </script>
+</body>
+</html>
