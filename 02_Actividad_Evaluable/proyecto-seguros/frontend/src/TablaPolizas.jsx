@@ -17,6 +17,7 @@ function TablaPolizas({ onEditar, recargar }) {
         if (confirm('¿Eliminar esta póliza?')) {
             await eliminarPoliza(id);
             cargar();
+            alert('Póliza eliminada');
         }
     };
 

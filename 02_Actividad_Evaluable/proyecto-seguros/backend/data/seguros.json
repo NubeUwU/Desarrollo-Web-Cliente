@@ -1,18 +1,5 @@
 [
   {
-    "id_poliza": "ID00001",
-    "vigencia": 9,
-    "matricula": "4827BCD",
-    "edad_coche": 2,
-    "edad_tomador": 24,
-    "cilindrada": 796,
-    "cilindros": 3,
-    "transmision": "Manual",
-    "comb_electrico": "Combustión",
-    "peso": 1185,
-    "siniestro": 0
-  },
-  {
     "id_poliza": "ID00002",
     "vigencia": 11,
     "matricula": "7391FKS",
@@ -1297,19 +1284,6 @@
     "transmision": "Manual",
     "comb_electrico": "Eléctrico",
     "peso": 1335,
-    "siniestro": 0
-  },
-  {
-    "id_poliza": "ID00001",
-    "vigencia": 12,
-    "matricula": "4827BJD",
-    "edad_coche": 10,
-    "edad_tomador": 45,
-    "cilindrada": 90,
-    "cilindros": 2,
-    "transmision": "Manual",
-    "comb_electrico": "Combustión",
-    "peso": 1024,
     "siniestro": 0
   }
 ]
